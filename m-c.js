@@ -102,7 +102,7 @@ window.onload = function() {
       });
     });
 	
-   jQuery('#defensemen-filter-filter .defensemen-filter-sort-button').each(function() {
+   jQuery('#defensemen-filter .defensemen-filter-sort-button').each(function() {
 	    
 	jQuery(this).click(function() {
                 

@@ -101,62 +101,6 @@ window.onload = function() {
     
       });
     });
-	
-   jQuery('#defensemen-filter .defensemen-filter-sort-button').each(function() {
-	    
-	jQuery(this).click(function() {
-                
-	    var clickedButton = jQuery(this).find('.sort-button-text').text();
-            
-            if ( clickedButton == 'POINTS' ) {
-
-                jQuery('.defensemen-filter-collection-list').find('.player-points').show();
-                jQuery('.defensemen-filter-collection-list').find('.player-goals').hide();
-                jQuery('.defensemen-filter-collection-list').find('.player-assists').hide();
-            
-
-                jQuery('.defensemen-filter-collection-list .defensemen-filter-collection-list-item').each(function() {
-                    jQuery(this).find('.defensemen-filter-statistics-content-left').hide();
-                    jQuery(this).find('.defensemen-filter-statistics-content-right').removeClass('active');
-                });
-
-                jQuery('.defensemen-filter-collection-list .defensemen-filter-collection-list-item:first-child').find('.defensemen-filter-statistics-content-left').show();
-                jQuery('.defensemen-filter-collection-list .defensemen-filter-collection-list-item:first-child').find('.defensemen-filter-statistics-content-right').addClass('active');
-            
-            } else if ( clickedButton == 'GOALS' ) {
-        
-                jQuery('.defensemen-filter-collection-list').find('.player-points').hide();
-                jQuery('.defensemen-filter-collection-list').find('.player-goals').show();
-                jQuery('.defensemen-filter-collection-list').find('.player-assists').hide();
-                
-
-                jQuery('.defensemen-filter-collection-list .defensemen-filter-collection-list-item ').each(function() {
-                    jQuery(this).find('.defensemen-filter-statistics-content-left').hide();
-                    jQuery(this).find('.defensemen-filter-statistics-content-right').removeClass('active');
-                });
-
-                jQuery('.defensemen-filter-collection-list .defensemen-filter-collection-list-item:first-child').find('.defensemen-filter-statistics-content-left').show();
-                jQuery('.defensemen-filter-collection-list .defensemen-filter-collection-list-item:first-child').find('.defensemen-filter-statistics-content-right').addClass('active');
-                
-            } else if ( clickedButton == 'ASSISTS' ) {    
-
-                jQuery('.defensemen-filter-collection-list').find('.player-points').hide();
-                jQuery('.defensemen-filter-collection-list').find('.player-goals').hide();
-                jQuery('.defensemen-filter-collection-list').find('.player-assists').show();
-                
-
-                jQuery('.defensemen-filter-collection-list .players-collection-list-item').each(function() {
-                    jQuery(this).find('.defensemen-filter-statistics-content-left').hide();
-                    jQuery(this).find('.defensemen-filter-statistics-content-right').removeClass('active');
-                });
-
-                jQuery('.defensemen-filter-collection-list .defensemen-filter-collection-list-item:first-child').find('.defensemen-filter-statistics-content-left').show();
-                jQuery('.defensemen-filter-collection-list .defensemen-filter-collection-list-item:first-child').find('.defensemen-filter-statistics-content-right').addClass('active');
-            
-            }
-    
-      });
-    });
     
     jQuery('.player-statistics-content-right').each(function() {
       

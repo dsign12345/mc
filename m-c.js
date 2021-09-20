@@ -221,7 +221,7 @@ window.onload = function() {
  	/* END ROOKIES */
 	
 	/* GOALIES */
-	jQuery('#goalies-filter .player-sort-button').each(function() {
+	jQuery('#goalies-filter .goalies-sort-button').each(function() {
 	    
 		jQuery(this).click(function() {
                 

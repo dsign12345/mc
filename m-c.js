@@ -6,7 +6,7 @@ if (typeof jQuery === "undefined") {
 }
 
 window.onload = function() {
-  	jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-left').show();
+	jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-left').show();
     jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-right').addClass('active');
 
     jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-left').show();
@@ -46,62 +46,181 @@ window.onload = function() {
     
     }
     
+	/* PLAYERS */
     jQuery('#players-filter .player-sort-button').each(function() {
 	    
-	jQuery(this).click(function() {
+		jQuery(this).click(function() {
+                
+			var clickedButton = jQuery(this).find('.sort-button-text').text();
+
+				if ( clickedButton == 'POINTS' ) {
+
+					jQuery('.players-collection-list').find('.player-points').show();
+					jQuery('.players-collection-list').find('.player-goals').hide();
+					jQuery('.players-collection-list').find('.player-assists').hide();
+
+
+					jQuery('.players-collection-list .players-collection-list-item').each(function() {
+						jQuery(this).find('.player-statistics-content-left').hide();
+						jQuery(this).find('.player-statistics-content-right').removeClass('active');
+					});
+
+					jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-left').show();
+					jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-right').addClass('active');
+
+				} else if ( clickedButton == 'GOALS' ) {
+
+					jQuery('.players-collection-list').find('.player-points').hide();
+					jQuery('.players-collection-list').find('.player-goals').show();
+					jQuery('.players-collection-list').find('.player-assists').hide();
+
+
+					jQuery('.players-collection-list .players-collection-list-item ').each(function() {
+						jQuery(this).find('.player-statistics-content-left').hide();
+						jQuery(this).find('.player-statistics-content-right').removeClass('active');
+					});
+
+					jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-left').show();
+					jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-right').addClass('active');
+
+				} else if ( clickedButton == 'ASSISTS' ) {    
+
+					jQuery('.players-collection-list').find('.player-points').hide();
+					jQuery('.players-collection-list').find('.player-goals').hide();
+					jQuery('.players-collection-list').find('.player-assists').show();
+
+
+					jQuery('.players-collection-list .players-collection-list-item').each(function() {
+						jQuery(this).find('.player-statistics-content-left').hide();
+						jQuery(this).find('.player-statistics-content-right').removeClass('active');
+					});
+
+					jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-left').show();
+					jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-right').addClass('active');
+
+				}
+    
+  		});
+    });
+	/* END PLAYERS */
+	
+	/* DEFENSEMEN */
+	jQuery('#defensemen-filter .defensemen-sort-button').each(function() {
+	    
+		jQuery(this).click(function() {
                 
 	    var clickedButton = jQuery(this).find('.sort-button-text').text();
             
             if ( clickedButton == 'POINTS' ) {
 
-                jQuery('.players-collection-list').find('.player-points').show();
-                jQuery('.players-collection-list').find('.player-goals').hide();
-                jQuery('.players-collection-list').find('.player-assists').hide();
+                jQuery('.defensemen-collection-list').find('.player-points').show();
+                jQuery('.defensemen-collection-list').find('.player-goals').hide();
+                jQuery('.defensemen-collection-list').find('.player-assists').hide();
             
 
-                jQuery('.players-collection-list .players-collection-list-item').each(function() {
-                    jQuery(this).find('.player-statistics-content-left').hide();
-                    jQuery(this).find('.player-statistics-content-right').removeClass('active');
+                jQuery('.defensemen-collection-list .defensemen-collection-list-item').each(function() {
+                    jQuery(this).find('.defensemen-statistics-content-left').hide();
+                    jQuery(this).find('.defensemen-statistics-content-right').removeClass('active');
                 });
 
-                jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-left').show();
-                jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-right').addClass('active');
+                jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-left').show();
+                jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-right').addClass('active');
             
             } else if ( clickedButton == 'GOALS' ) {
         
-                jQuery('.players-collection-list').find('.player-points').hide();
-                jQuery('.players-collection-list').find('.player-goals').show();
-                jQuery('.players-collection-list').find('.player-assists').hide();
+                jQuery('.defensemen-collection-list').find('.player-points').hide();
+                jQuery('.defensemen-collection-list').find('.player-goals').show();
+                jQuery('.defensemen-collection-list').find('.player-assists').hide();
                 
 
-                jQuery('.players-collection-list .players-collection-list-item ').each(function() {
-                    jQuery(this).find('.player-statistics-content-left').hide();
-                    jQuery(this).find('.player-statistics-content-right').removeClass('active');
+                jQuery('.defensemen-collection-list .defensemen-collection-list-item ').each(function() {
+                    jQuery(this).find('.defensemen-statistics-content-left').hide();
+                    jQuery(this).find('.defensemen-statistics-content-right').removeClass('active');
                 });
 
-                jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-left').show();
-                jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-right').addClass('active');
+                jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-left').show();
+                jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-right').addClass('active');
                 
             } else if ( clickedButton == 'ASSISTS' ) {    
 
-                jQuery('.players-collection-list').find('.player-points').hide();
-                jQuery('.players-collection-list').find('.player-goals').hide();
-                jQuery('.players-collection-list').find('.player-assists').show();
+                jQuery('.defensemen-collection-list').find('.player-points').hide();
+                jQuery('.defensemen-collection-list').find('.player-goals').hide();
+                jQuery('.defensemen-collection-list').find('.player-assists').show();
                 
 
-                jQuery('.players-collection-list .players-collection-list-item').each(function() {
-                    jQuery(this).find('.player-statistics-content-left').hide();
-                    jQuery(this).find('.player-statistics-content-right').removeClass('active');
+                jQuery('.defensemen-collection-list .defensemen-collection-list-item').each(function() {
+                    jQuery(this).find('.defensemen-statistics-content-left').hide();
+                    jQuery(this).find('.defensemen-statistics-content-right').removeClass('active');
                 });
 
-                jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-left').show();
-                jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-right').addClass('active');
+                jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-left').show();
+                jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-right').addClass('active');
             
             }
     
       });
     });
-    
+    /* END DEFENSEMEN */
+	
+	/* ROOKIES */
+ 	jQuery('#rookies-filter .rookies-sort-button').each(function() {
+	    
+		jQuery(this).click(function() {
+
+			var clickedButton = jQuery(this).find('.sort-button-text').text();
+
+			if ( clickedButton == 'POINTS' ) {
+
+				jQuery('.rookies-collection-list').find('.player-points').show();
+				jQuery('.rookies-collection-list').find('.player-goals').hide();
+				jQuery('.rookies-collection-list').find('.player-assists').hide();
+
+
+				jQuery('.rookies-collection-list .rookies-collection-list-item').each(function() {
+					jQuery(this).find('.rookies-statistics-content-left').hide();
+					jQuery(this).find('.rookies-statistics-content-right').removeClass('active');
+				});
+
+				jQuery('.rookies-collection-list .rookies-collection-list-item:first-child').find('.rookies-statistics-content-left').show();
+				jQuery('.rookies-collection-list .rookies-collection-list-item:first-child').find('.rookies-statistics-content-right').addClass('active');
+
+			} else if ( clickedButton == 'GOALS' ) {
+
+				jQuery('.rookies-collection-list').find('.player-points').hide();
+				jQuery('.rookies-collection-list').find('.player-goals').show();
+				jQuery('.rookies-collection-list').find('.player-assists').hide();
+
+
+				jQuery('.rookies-collection-list .rookies-collection-list-item ').each(function() {
+					jQuery(this).find('.rookies-statistics-content-left').hide();
+					jQuery(this).find('.rookies-statistics-content-right').removeClass('active');
+				});
+
+				jQuery('.rookies-collection-list .rookies-collection-list-item:first-child').find('.rookies-statistics-content-left').show();
+				jQuery('.rookies-collection-list .rookies-collection-list-item:first-child').find('.rookies-statistics-content-right').addClass('active');
+
+			} else if ( clickedButton == 'ASSISTS' ) {    
+
+				jQuery('.rookies-collection-list').find('.player-points').hide();
+				jQuery('.rookies-collection-list').find('.player-goals').hide();
+				jQuery('.rookies-collection-list').find('.player-assists').show();
+
+
+				jQuery('.rookies-collection-list .rookies-collection-list-item').each(function() {
+					jQuery(this).find('.rookies-statistics-content-left').hide();
+					jQuery(this).find('.rookies-statistics-content-right').removeClass('active');
+				});
+
+				jQuery('.rookies-collection-list .rookies-collection-list-item:first-child').find('.rookies-statistics-content-left').show();
+				jQuery('.rookies-collection-list .rookies-collection-list-item:first-child').find('.rookies-statistics-content-right').addClass('active');
+
+			}
+
+		});
+	});
+ 	/* END ROOKIES */
+
+  
     jQuery('.player-statistics-content-right').each(function() {
       
         jQuery(this).click(function() {
@@ -136,6 +255,29 @@ window.onload = function() {
             });
             
             jQuery('.defensemen-statistics-content-left').each(function() {
+                jQuery(this).hide();
+            });
+            
+            jQuery(this).prev().show();
+            jQuery(this).addClass('active');
+          
+          } 
+       
+      });
+      
+    }); 
+	
+   	jQuery('.rookies-statistics-content-right').each(function() {
+      
+        jQuery(this).click(function() {
+              
+          if ( !jQuery(this).hasClass('active') ) {
+              
+            jQuery('.rookies-statistics-content-right').each(function() {
+                jQuery(this).removeClass('active');
+            });
+            
+            jQuery('.rookies-statistics-content-left').each(function() {
                 jQuery(this).hide();
             });
             

@@ -276,7 +276,7 @@ window.onload = function() {
   		});
       
     });
-	/* END GOALIES */
+    /* END GOALIES */
 
     jQuery('.player-statistics-content-right').each(function() {
       
@@ -364,7 +364,9 @@ window.onload = function() {
 			jQuery(this).prev().show();
 			jQuery(this).addClass('active');
 
-		  } 
+            }
        
-  	});
+        });
+    
+    });
 }

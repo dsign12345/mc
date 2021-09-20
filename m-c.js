@@ -27,22 +27,22 @@ window.onload = function() {
     
     if ( jQuery('.defensemen-sort-button.sort-active').find('.sort-button-text').text() == 'POINTS' ) {
     
-	jQuery('.defensemen-collection-list').find('.player-goals').hide();
-	jQuery('.defensemen-collection-list').find('.player-assists').hide();
+		jQuery('.defensemen-collection-list').find('.player-goals').hide();
+		jQuery('.defensemen-collection-list').find('.player-assists').hide();
     
     }
 
     if ( jQuery('.rookies-sort-button.sort-active').find('.sort-button-text').text() == 'POINTS' ) {
     
-	jQuery('.rookies-collection-list').find('.player-goals').hide();
-	jQuery('.rookies-collection-list').find('.player-assists').hide();
+		jQuery('.rookies-collection-list').find('.player-goals').hide();
+		jQuery('.rookies-collection-list').find('.player-assists').hide();
     
     }
     
     if ( jQuery('.goalies-sort-button.sort-active').find('.sort-button-text').text() == 'GAA' ) {
     
-	jQuery('.goalies-collection-list').find('.player-goals').hide();
-	jQuery('.goalies-collection-list').find('.player-assists').hide();
+		jQuery('.goalies-collection-list').find('.player-sv').hide();
+		jQuery('.goalies-collection-list').find('.player-shutouts').hide();
     
     }
     
@@ -219,8 +219,65 @@ window.onload = function() {
 		});
 	});
  	/* END ROOKIES */
+	
+	/* GOALIES */
+	jQuery('#goalies-filter .player-sort-button').each(function() {
+	    
+		jQuery(this).click(function() {
+                
+			var clickedButton = jQuery(this).find('.sort-button-text').text();
 
-  
+			if ( clickedButton == 'GAA' ) {
+
+				jQuery('.goalies-collection-list').find('.player-gaa').show();
+				jQuery('.goalies-collection-list').find('.player-sv').hide();
+				jQuery('.goalies-collection-list').find('.player-shutouts').hide();
+
+
+				jQuery('.goalies-collection-list .goalies-collection-list-item').each(function() {
+					jQuery(this).find('.goalies-statistics-content-left').hide();
+					jQuery(this).find('.goalies-statistics-content-right').removeClass('active');
+				});
+
+				jQuery('.goalies-collection-list .goalies-collection-list-item:first-child').find('.goalies-statistics-content-left').show();
+				jQuery('.goalies-collection-list .goalies-collection-list-item:first-child').find('.goalies-statistics-content-right').addClass('active');
+
+			} else if ( clickedButton == 'SV%' ) {
+
+				jQuery('.goalies-collection-list').find('.player-gaa').hide();
+				jQuery('.goalies-collection-list').find('.player-sv').show();
+				jQuery('.goalies-collection-list').find('.player-shutouts').hide();
+
+
+				jQuery('.goalies-collection-list .goalies-collection-list-item ').each(function() {
+					jQuery(this).find('.goalies-statistics-content-left').hide();
+					jQuery(this).find('.goalies-statistics-content-right').removeClass('active');
+				});
+
+				jQuery('.goalies-collection-list .goalies-collection-list-item:first-child').find('.goalies-statistics-content-left').show();
+				jQuery('.goalies-collection-list .goalies-collection-list-item:first-child').find('.goalies-statistics-content-right').addClass('active');
+
+			} else if ( clickedButton == 'SHUTOUTS' ) {    
+
+				jQuery('.goalies-collection-list').find('.player-gaa').hide();
+				jQuery('.goalies-collection-list').find('.player-sv').hide();
+				jQuery('.goalies-collection-list').find('.player-shutouts').show();
+
+				jQuery('.goalies-collection-list .goalies-collection-list-item').each(function() {
+					jQuery(this).find('.goalies-statistics-content-left').hide();
+					jQuery(this).find('.goalies-statistics-content-right').removeClass('active');
+				});
+
+				jQuery('.goalies-collection-list .goalies-collection-list-item:first-child').find('.goalies-statistics-content-left').show();
+				jQuery('.goalies-collection-list .goalies-collection-list-item:first-child').find('.goalies-statistics-content-right').addClass('active');
+
+			}
+
+  		});
+      
+    });
+	/* END GOALIES */
+
     jQuery('.player-statistics-content-right').each(function() {
       
         jQuery(this).click(function() {
@@ -289,4 +346,25 @@ window.onload = function() {
       });
       
     }); 
+	
+ 	jQuery('.goalies-statistics-content-right').each(function() {
+
+		jQuery(this).click(function() {
+
+		  if ( !jQuery(this).hasClass('active') ) {
+
+			jQuery('.goalies-statistics-content-right').each(function() {
+				jQuery(this).removeClass('active');
+			});
+
+			jQuery('.goalies-statistics-content-left').each(function() {
+				jQuery(this).hide();
+			});
+
+			jQuery(this).prev().show();
+			jQuery(this).addClass('active');
+
+		  } 
+       
+  	});
 }

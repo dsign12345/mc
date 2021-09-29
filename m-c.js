@@ -64,6 +64,8 @@ window.onload = function() {
 						jQuery(this).find('.player-statistics-content-left').hide();
 						jQuery(this).find('.player-statistics-content-right').removeClass('active');
 					});
+					
+					
 
 					jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-left').show();
 					jQuery('.players-collection-list .players-collection-list-item:first-child').find('.player-statistics-content-right').addClass('active');
@@ -121,10 +123,24 @@ window.onload = function() {
                 jQuery('.defensemen-collection-list .defensemen-collection-list-item').each(function() {
                     jQuery(this).find('.defensemen-statistics-content-left').hide();
                     jQuery(this).find('.defensemen-statistics-content-right').removeClass('active');
+			
                 });
-
-                jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-left').show();
-                jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-right').addClass('active');
+		    
+		jQuery('.defensemen-collection-list .defensemen-collection-list-item').each(function() {    
+							
+            		if ( jQuery(this).css('display') != 'none' ) {
+            
+            			jQuery(this).find('.statistics-left').show();
+            			jQuery(this).find('.statistics-right').addClass('active');
+              
+              			return false;
+              
+            		 }	
+			
+		});
+		
+                //jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-left').show();
+                //jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-right').addClass('active');
             
             } else if ( clickedButton == 'GOALS' ) {
         
@@ -137,9 +153,22 @@ window.onload = function() {
                     jQuery(this).find('.defensemen-statistics-content-left').hide();
                     jQuery(this).find('.defensemen-statistics-content-right').removeClass('active');
                 });
+		    
+		jQuery('.defensemen-collection-list .defensemen-collection-list-item').each(function() {    
+							
+            		if ( jQuery(this).css('display') != 'none' ) {
+            
+            			jQuery(this).find('.statistics-left').show();
+            			jQuery(this).find('.statistics-right').addClass('active');
+              
+              			return false;
+              
+            		 }	
+			
+		});
 
-                jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-left').show();
-                jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-right').addClass('active');
+                //jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-left').show();
+                //jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-right').addClass('active');
                 
             } else if ( clickedButton == 'ASSISTS' ) {    
 
@@ -152,9 +181,22 @@ window.onload = function() {
                     jQuery(this).find('.defensemen-statistics-content-left').hide();
                     jQuery(this).find('.defensemen-statistics-content-right').removeClass('active');
                 });
+		    
+		jQuery('.defensemen-collection-list .defensemen-collection-list-item').each(function() {    
+							
+            		if ( jQuery(this).css('display') != 'none' ) {
+            
+            			jQuery(this).find('.statistics-left').show();
+            			jQuery(this).find('.statistics-right').addClass('active');
+              
+              			return false;
+              
+            		 }	
+			
+		});
 
-                jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-left').show();
-                jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-right').addClass('active');
+                //jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-left').show();
+                //jQuery('.defensemen-collection-list .defensemen-collection-list-item:first-child').find('.defensemen-statistics-content-right').addClass('active');
             
             }
     
